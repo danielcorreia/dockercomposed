@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Dockered</title>
+</head>
+<body>
+  <h1 id="title">Hello</h1>
+  <script>
+    const title = document.querySelector('#title');
+    fetch('/api/')
+      .then(res => {
+        if (!res.ok) {
+          return Promise.reject(res.statusText);
+        }
+        return res.json();
+      })
+      .then(data => {
+        const { name } = data;
+        title.innerText = `Hello ${name}!`;
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  </script>
+</body>
+</html>
