@@ -30,7 +30,7 @@ services:
   web:
     build: ./web
     restart: always
-    entrypoint: ['npm', 'start']
+    entrypoint: ['node', 'server.js']
     volumes:
       - ./web:/code
     ports:
